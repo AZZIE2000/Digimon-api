@@ -7,7 +7,9 @@ let pokies = [];
 fetch("https://digimon-api.vercel.app/api/digimon")
   .then((res) => res.json())
   .then((data) => {
-    for (x = 0; x < 100; x++) {
+    while (pokies.length < 102) {
+      let x = 0;
+      x = Math.floor(Math.random() * 208) + 1;
       let newPoki = new Collection(data[x].name, data[x].img, data[x].level);
       pokies.push(newPoki);
     }
@@ -23,7 +25,7 @@ function render(pokies) {
   // create div container and set class name
 
   let divCol = document.createElement("div");
-  divCol.className = "col-sm-3";
+  divCol.className = "col-lg-2 ";
   myDiv.append(divCol);
 
   // create div container to carry card-title, card-image, card-body, and card-text
